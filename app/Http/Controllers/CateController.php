@@ -28,7 +28,7 @@ class CateController extends Controller
     	$this->validate($request,
     		[
     			
-    			'name' =>'required|unique:Categories,name|min:3|max:100'
+    			'name' =>'required|unique:categories,name|min:3|max:100'
     		],
     		[
     			'name.required'=>' ban chua nhap ten category',
