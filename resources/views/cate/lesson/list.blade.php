@@ -41,14 +41,15 @@
 								<td>{{$lesson->id}}</td>
 								<td>
 									<p>{{$lesson->title}}</p>
-									<img width="150px" height="100px" src="/uploads/lesson/images/{{$lesson->hinh}}">
+									<img width="150px" height="100px" src="{{ asset('/uploads/lesson/images/' . $lesson->hinh ) }}">
 									
 								</td>
 								<td>{{$lesson->tomtat}}</td>
 								<td>{{$lesson->categories->name}}</td>
 								<td>
 									<video width="200" height="150px" controls>
-									 	<source src="/uploads/lesson/video/{{$lesson->media}}" type="video/mp4">
+                                    {{ asset('/uploads/avatars/' .  Auth::user()->avatar) }}
+									 	<source src="{{ asset('/uploads/lesson/video/' . $lesson->media ) }}" type="video/mp4">
 									</video>
 								</td>
 								<td>
