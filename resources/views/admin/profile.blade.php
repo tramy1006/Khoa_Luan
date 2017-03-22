@@ -24,7 +24,8 @@
                         <div class="alert alert-success">
                             {{session('thongbao')}}
                         </div>@endif
-<img src="/uploads/avatars/{{$user->avatar}}" style="width:300px; height: 300px; float: left; border-radius: 50%; margin-right: 50px; margin-left: 100px">
+                        
+<img src="{{ asset('/uploads/avatars/' . $user->avatar ) }}" style="width:300px; height: 300px; float: left; border-radius: 50%; margin-right: 50px; margin-left: 100px">
 
 <h3 style="margin-left: 30px">{{ Auth::user()->name}}'s Profile</h3>
 <pre>
