@@ -17,7 +17,7 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/contact', 'ContactController@index');
-Route::get('/admin', 'UserController@admin');
+Route::get('/quantri', 'UserController@getAdmin');
 //profile
 Route::get('/profile', 'UserController@profile');
 Route::post('/profile', 'UserController@update_profile');
@@ -59,6 +59,12 @@ Route::group(['prefix'=>'lesson'], function(){
 Route::group(['prefix'=>'comment'], function(){	
 	Route::get('delete/{id}/{less_id}', 'CommentController@getDelete');
 });
+Route::post('/comment/{id}', 'CommentController@postComment');
+
+Route::get('/cate/{id}', 'HomeController@theloai');
+Route::get('/cate/lesson/{id}', 'HomeController@chitiet');
+Route::post('/timkiem', 'HomeController@timkiem');
+
 
 
 

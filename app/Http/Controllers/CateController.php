@@ -77,4 +77,6 @@ class CateController extends Controller
     	return redirect('/cate/list')->with('thongbao', 'xóa thành công');
 
     }
+   
+   
 }

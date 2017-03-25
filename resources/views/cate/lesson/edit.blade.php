@@ -1,73 +1,17 @@
-@extends('layouts.app')
-@section('menu')   
-<div class="col-md-3" style="float: left;">           
-<ul class="list-group" id="menu">
-                    <li href="#" class="list-group-item menu1 active">
-                        Management
-                    </li>
+@extends('layouts.ad')
 
-                    <li href="#" class="list-group-item menu1">
-                        User
-                    </li>
-                    <ul>
-                        <li class="list-group-item">
-                            <a href="/users">List</a>
-                        </li>
-                        
-                    </ul>
-
-                    <li href="#" class="list-group-item menu1">
-                        Categories
-                    </li>
-                    <ul>
-                        <li class="list-group-item">
-                            <a href="/cate/list">List</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="/cate/add">Add</a>
-                        </li>
-                        
-                        
-                    </ul>
-
-
-                    <li href="#" class="list-group-item menu1">
-                        Lesson
-                    </li>
-
-                    <ul>
-                        <li class="list-group-item">
-                            <a href="/lesson/list">List</a>
-                        </li>
-                         <li class="list-group-item">
-                            <a href="/lesson/add">Add</a>
-                        </li>
-                                                
-                    </ul>      
-                </ul>
-                </div>
-
-                  
-@endsection
 @section('content')
-
-        <div class="col-md-9" style="float: right">
-          
-                <div class="panel panel-default">
-                    @if(session('thongbao'))
-                        <div class="alert alert-success">
-                            {{session('thongbao')}}
-                        </div>
-                    @endif
-                    
-                <div class="panel-heading" align="center" style="margin-bottom: 10px">
-                    <h3 >Edit Lesson</h3>
-                    <h4 style="color: #092"> {{$less->title}}</h4>
-
-                </div>                   
-                <div class="panel">
-                               
-                    <form  action="" method="POST" enctype="multipart/form-data" >
+<div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Edit Lesson
+                        <small style="color: #092">{{$less->title}}</small>
+                       
+                    </h1>
+                </div>
+                <!-- /.col-lg-12 -->
+                <div class="col-lg-7" style="padding-bottom:120px">
+                 <form  action="" method="POST" enctype="multipart/form-data" >
                         <input type="hidden" name="_token" value="{{csrf_token() }}"/>
                         <div class="form-group" >
                             <label>Category Parent</label>
@@ -131,17 +75,11 @@
                             <button type="reset" class="btn btn-primary"><i class="fa fa-refresh"></i>Reset</button> 
                         </div>
                     </form>
-                               
+                   
                 </div>
-            </div>
-       
-    </div>
-    
-    <div class="row">
-    <div class="col-md-9 " style="float: right;">
-        
-            <div class="panel panel-default">
-                <div class="panel-body">
+                <div class="col-md-12">
+                 <div class="panel panel-default" style="margin-top: 30px">
+                <div class="panel-body" >
                     <div align="center">    
                          <h2>Comment List</h2>
                     </div>
@@ -174,9 +112,9 @@
                         </table>
                 </div>
             </div>
-       
-    </div>
-    </div>
-</div>
+            </div>
+            </div>
+            <!-- /.row -->
+        </div>
 
 @endsection

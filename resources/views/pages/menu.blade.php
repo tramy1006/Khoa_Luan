@@ -5,7 +5,7 @@
                     </li>
                     @foreach($cate as $category)
                     <li href="#" class="list-group-item menu1">
-                         <a href="#">{{$category->name}}</a>
+                         <a href="/cate/{{$category->id}}">{{$category->name}}</a>
                     </li>
                     @endforeach
                     

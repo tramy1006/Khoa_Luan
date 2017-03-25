@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
-        <div class="col-md-7 ">
+    <div class="col-md-12">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 ">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading" align="center">Login</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -60,5 +61,6 @@
                 </div>
             </div>
         </div>
-
+        <div class="col-md-2"></div>
+        </div>
 @endsection

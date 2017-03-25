@@ -12,9 +12,9 @@ use App\User;
 use Image;
 class UserController extends Controller
 {
-    public function admin()
+    public function getAdmin()
     {
-        return view('admin.admin');
+        return view('layouts.ad');
     }
     public function profile()
     {
@@ -94,7 +94,7 @@ class UserController extends Controller
             return redirect('/');
         }
         $users = DB::table('users')->get();
-        return view('admin.index', compact('users'));
+        return view('admin.user', compact('users'));
     }
     public function updateRole( Request $request, User $user)
     {

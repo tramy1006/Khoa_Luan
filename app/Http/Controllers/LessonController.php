@@ -163,4 +163,5 @@ class LessonController extends Controller
         $less->delete();
         return redirect('/lesson/list')->with('thongbao', 'Xóa thành công');
     }
+    
 }
