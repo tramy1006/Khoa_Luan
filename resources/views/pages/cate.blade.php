@@ -17,7 +17,7 @@
 
                             
                                 <br>
-                                <video width="200px" height="200px" class="img-responsive" controls>
+                                <video width="200px" height="200px" class="img-responsive" >
                                         <source  src="{{asset('/uploads/lesson/video/'. $lesson->media )}}" type="video/mp4" >
                                 </video>
                             

@@ -29,7 +29,7 @@
 			                	<div class="col-md-8 border-right">
 			                		<div class="col-md-5">
 				                        
-				                            <video width="200" height="150px" controls>
+				                            <video width="200" height="150px" >
 									 			<source src="/uploads/lesson/video/{{$les['media']}}" type="video/mp4">
 											</video>
 				                            
