@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Category;
 use App\Lesson;
 use App\Comment;
+use Cloudder;
 class LessonController extends Controller
 {
     public function getList()
@@ -72,22 +73,9 @@ class LessonController extends Controller
 
           if($request->hasFile('media'))
         {
-            $file = $request->file('media');
-            
-            $name = $file->getClientOriginalName();
-            $media = str_random(4)."_".$name;
-            //kiểm tra hình tồn tại không
-            while(file_exists("uploads/lesson/video/".$media))
-            {
-                $media = str_random(4)."_".$name;
-            }
-            //lưu hình
-            $file->move("uploads/lesson/video", $media);
-            $less->media = $media;
-        }
-        else
-        {
-            $less->media = "";
+            $file = $request->media;
+            Cloudder::uploadVideo($file, 'khoaluan/' . $less->title);
+            $less->media = Cloudder::getResult()['url'];
         }
         $less->save();
         return redirect('lesson/list')->with('thongbao', 'Thêm lesson thành công');
