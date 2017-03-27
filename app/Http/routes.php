@@ -55,6 +55,8 @@ Route::group(['prefix'=>'lesson'], function(){
 	Route::get('delete/{id}', 'LessonController@getDelete');
 
 });
+Route::get('dropboxUpload', 'dropController@dropboxUpload');
+Route::post('dropboxFileUpload', 'dropController@dropboxFileUpload');
 
 Route::group(['prefix'=>'comment'], function(){	
 	Route::get('delete/{id}/{less_id}', 'CommentController@getDelete');
@@ -64,6 +66,7 @@ Route::post('/comment/{id}', 'CommentController@postComment');
 Route::get('/cate/{id}', 'HomeController@theloai');
 Route::get('/cate/lesson/{id}', 'HomeController@chitiet');
 Route::post('/timkiem', 'HomeController@timkiem');
+
 
 
 

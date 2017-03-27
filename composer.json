@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "intervention/image": "^2.3",
         "laravelcollective/html": "^5.2.0",
-        "robbiep/cloudconvert-laravel": "^2.3"
+        "robbiep/cloudconvert-laravel": "^2.3",
+        "league/flysystem-dropbox": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

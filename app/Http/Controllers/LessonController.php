@@ -8,6 +8,15 @@ use App\Http\Requests;
 use App\Category;
 use App\Lesson;
 use App\Comment;
+
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Input;
+use Validator;
+use Illuminate\Support\Facades\Redirect;
+use League\Flysystem\Dropbox\DropboxAdapter;
+use League\Flysystem\Filesystem;
+use Dropbox\Client;
+use Dropbox\WriteMode;
 class LessonController extends Controller
 {
     public function getList()
@@ -69,26 +78,22 @@ class LessonController extends Controller
         {
             $less->hinh = "";
         }
+        if($request->hasFile('media'))
+        {
 
-          if($request->hasFile('media'))
-        {
-            $file = $request->file('media');
-            
-            $name = $file->getClientOriginalName();
-            $media = str_random(4)."_".$name;
-            //kiểm tra hình tồn tại không
-            while(file_exists("uploads/lesson/video/".$media))
-            {
-                $media = str_random(4)."_".$name;
-            }
-            //lưu hình
-            $file->move("uploads/lesson/video", $media);
-            $less->media = $media;
-        }
-        else
-        {
-            $less->media = "";
-        }
+        $Client = new Client(env('DROPBOX_TOKEN'), env('DROPBOX_SECRET'));
+
+         
+         $file = fopen(Input::file('media'), 'rb');
+         $size = filesize(Input::file('media'));
+         $dropboxFileName = '/'.Input::file('media')->getClientOriginalName();
+         $Client->uploadFile($dropboxFileName,WriteMode::add(),$file, $size);
+         //$links['share'] = $Client->createShareableLink($dropboxFileName);
+         $links = $Client->createTemporaryDirectLink($dropboxFileName);
+         $link = $links[0];
+        $less->media = $link;
+       }
+        
         $less->save();
         return redirect('lesson/list')->with('thongbao', 'Thêm lesson thành công');
     }
