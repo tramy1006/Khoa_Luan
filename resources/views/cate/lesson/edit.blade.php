@@ -56,16 +56,12 @@
                                 >Có
                             </label>
                         </div>
-                        <div class="form-group">
-                            <label>Hình ảnh</label>
-                            <p><img width="150px" height="150px" src="/uploads/lesson/images/{{$less->hinh}}"></p>
-                            <input type="file" name="hinh" class="form-control">
-                        </div>
+                        
                          <div class="form-group">
                             <label>Video</label>
                             <p>
                                 <video width="200" height="150px" controls>
-                                    <source src="/uploads/lesson/video/{{$less->media}}" type="video/mp4">
+                                    <source src="{{$less->media}}" type="video/mp4">
                                 </video>
                             </p>
                             <input type="file" name="media" class="form-control">

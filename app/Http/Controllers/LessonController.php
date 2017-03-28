@@ -8,7 +8,9 @@ use App\Http\Requests;
 use App\Category;
 use App\Lesson;
 use App\Comment;
+
 use Cloudder;
+
 class LessonController extends Controller
 {
     public function getList()
@@ -46,37 +48,15 @@ class LessonController extends Controller
         $less->noidung = $request->noidung;
         $less->luotxem = 0;
         $less->noibat = $request->noibat;        
-        if($request->hasFile('hinh'))
-        {
-            $file = $request->file('hinh');
-             $duoi = $file->getClientOriginalExtension();
-            if($duoi != 'jpg' && $duoi != 'png' && $duoi != 'jpeg')
-            {
-                return redirect('lesson/add')->with('loi', 'Bạn chỉ được upload ảnh');
-            }
-            
-            $name = $file->getClientOriginalName();
-            $hinh = str_random(4)."_".$name;
-            //kiểm tra hình tồn tại không
-            while(file_exists("uploads/lesson/images/".$hinh))
-            {
-                $hinh = str_random(4)."_".$name;
-            }
-            //lưu hình
-            $file->move("uploads/lesson/images", $hinh);
-            $less->hinh = $hinh;
-        }
-        else
-        {
-            $less->hinh = "";
-        }
 
-          if($request->hasFile('media'))
+        if($request->hasFile('media'))
         {
             $file = $request->media;
             Cloudder::uploadVideo($file, 'khoaluan/' . $less->title);
             $less->media = Cloudder::getResult()['url'];
         }
+        
+
         $less->save();
         return redirect('lesson/list')->with('thongbao', 'Thêm lesson thành công');
     }
@@ -98,47 +78,14 @@ class LessonController extends Controller
         $less->title = $request->tieude;
         $less->tomtat = $request->tomtat;
         $less->noidung = $request->noidung;
-         $less->noibat = $request->noibat;  
-         if($request->hasFile('hinh'))
-        {
-            $file = $request->file('hinh');
-             $duoi = $file->getClientOriginalExtension();
-            if($duoi != 'jpg' && $duoi != 'png' && $duoi != 'jpeg')
-            {
-                return redirect('lesson/add')->with('loi', 'Bạn chỉ được upload ảnh');
-            }
-        
-            $name = $file->getClientOriginalName();
-            $hinh = str_random(4)."_".$name;
-            //kiểm tra hình tồn tại không
-            while(file_exists("/uploads/lesson/images/".$hinh))
-            {
-                $hinh = str_random(4)."_".$name;
-            }
-            //lưu hình
-            $file->move("uploads/lesson/images", $hinh);
-            //xóa file cũ đi
-            unlink("uploads/lesson/images/".$less->hinh);
-            //lưu hình mới
-            $less->hinh = $hinh;
-        }
+        $less->noibat = $request->noibat;  
 
         if($request->hasFile('media'))
         {
-            $file = $request->file('media');
             
-            $name = $file->getClientOriginalName();
-            $media = str_random(4)."_".$name;
-            //kiểm tra hình tồn tại không
-            while(file_exists("uploads/lesson/video/".$media))
-            {
-                $media = str_random(4)."_".$name;
-            }
-            //lưu hình
-            $file->move("uploads/lesson/video", $media);
-            
-            //lưu file mới
-            $less->media = $media;
+            $file = $request->media;
+            Cloudder::uploadVideo($file, 'khoaluan/' . $less->title);
+            $less->media = Cloudder::getResult()['url'];
         }
        
         $less->save();

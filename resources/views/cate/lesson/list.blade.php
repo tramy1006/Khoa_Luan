@@ -39,15 +39,17 @@
                                 <td>
                                     <p>{{$lesson->title}}</p>
                                     
-                                    <img width="150px" height="100px" src="{{ asset('/uploads/lesson/images/'. $lesson->hinh )}}">
+                                    
                                     
                                 </td>
                                 <td>{{$lesson->tomtat}}</td>
                                 <td>{{$lesson->categories->name}}</td>
                                 <td>
-                                    <video width="200" height="150px" controls>
-                                        <source src=" {{ $lesson->media }}" type="video/mp4" >
-                                    </video>
+                                <video width="200" height="150px" controls>
+
+                                   <source src="{{$lesson->media}}" type="video/mp4" >
+
+                                </video>
                                 </td>
                                 <td>
                                     {{$lesson->luotxem}}

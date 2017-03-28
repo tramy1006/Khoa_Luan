@@ -8,7 +8,7 @@
 <div class="col-md-9" style="float: right;"> 
  	<div class="panel panel-default">            
 	    <div class="panel-heading" style="background-color:#337AB7; color:white;" >
-	        <h2 style="margin-top:0px; margin-bottom:0px;" align="center">Bài Giảng</h2>
+	        <h2 style="margin-top:0px; margin-bottom:0px;" align="center">Video nổi bật</h2>
 	    </div>
 
 	    <div class="panel-body">
@@ -30,7 +30,7 @@
 			                		<div class="col-md-5">
 				                        
 				                            <video width="200" height="150px" >
-									 			<source src="/uploads/lesson/video/{{$les['media']}}" type="video/mp4">
+									 			<source src="{{$les['media']}}" type="video/mp4">
 											</video>
 				                            
 				                        

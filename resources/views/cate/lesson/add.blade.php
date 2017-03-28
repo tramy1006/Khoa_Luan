@@ -54,10 +54,7 @@
                                 <input type="radio" name="noibat" value="1">Có
                             </label>
                         </div>
-                        <div class="form-group">
-                            <label>Hình ảnh</label>
-                            <input type="file" name="hinh" class="form-control">
-                        </div>
+                       
                          <div class="form-group">
                             <label>Video</label>
                             <input type="file" name="media" class="form-control">

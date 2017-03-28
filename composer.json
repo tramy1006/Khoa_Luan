@@ -9,8 +9,13 @@
         "laravel/framework": "5.2.*",
         "intervention/image": "^2.3",
         "laravelcollective/html": "^5.2.0",
+<<<<<<< HEAD
         "cloudinary/cloudinary_php": "dev-master",
         "jrm2k6/cloudder": "0.2.*"
+=======
+        "robbiep/cloudconvert-laravel": "^2.3",
+        "league/flysystem-dropbox": "^1.0"
+>>>>>>> 04bb118ca90dfed64b0297de2447d84817907c48
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

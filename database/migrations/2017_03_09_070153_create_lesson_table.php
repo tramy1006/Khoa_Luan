@@ -18,7 +18,6 @@ class CreateLessonTable extends Migration
             $table->longText('tomtat');
             $table->mediumText('noidung');
             $table->string('media');
-            $table->string('hinh');
             $table->integer('luotxem');
             $table->integer('noibat');
             $table->integer('cate_id')->unsigned();

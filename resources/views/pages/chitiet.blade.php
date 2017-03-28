@@ -20,7 +20,7 @@
             <!-- Preview Image -->
             <p>
             <video width="800px" height="300px" controls>
-					<source style="width: 800px; height: 300px" src="/uploads/lesson/video/{{$less->media}}" class="img-responsive" type="video/mp4">
+					<source style="width: 800px; height: 300px" src="{{$less->media}}" class="img-responsive" type="video/mp4">
 			</video></p>
             <!-- Date/Time -->
             <p><span class="glyphicon glyphicon-time"></span> Posted on : {{$less->created_at}}</p>
@@ -79,7 +79,12 @@
                     <div class="row" style="margin-top: 10px;">
                         <div class="col-md-5">
                             <a href="/cate/lesson/{{$lq->id}}">
-                                <img class="img-responsive" style="width: 80px; height: 80px" src="{{asset('/uploads/lesson/images/' . $lq->hinh)}}" alt="">
+                                
+                                <video class="img-responsive" style="width: 80px; height: 80px" >
+
+                                   <source src="{{$lq->media}}" type="video/mp4" >
+
+                                </video>
                             </a>
                         </div>
                         <div class="col-md-7">
@@ -103,7 +108,11 @@
                         <div class="col-md-5">
                             <a href="/cate/lesson/{{$nb->id}}">
 
-                                <img class="img-responsive" src="{{asset('/uploads/lesson/images/'. $nb->hinh)}}" alt="">
+                                <video class="img-responsive" style="width: 80px; height: 80px" >
+
+                                   <source src="{{$nb->media}}" type="video/mp4" >
+
+                                </video>
                            
                             </a>
                         </div>
